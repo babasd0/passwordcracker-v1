@@ -28,6 +28,8 @@ Le projet repose sur une interface commune `HashCracker`, implémentée par deux
 | `Main` | Point d'entrée : parsing des arguments et affichage des résultats |
 
 ## 4. Diagramme UML
+![Diagramme de classes](docs/diagramme-classes.png)
+
 ## 5. Usage du patron Simple Factory
 
 La création des objets `HashCracker` est entièrement centralisée dans `HashCrackerFactory.create(method)`. Le programme principal ne connaît jamais les classes concrètes (`DictionaryHashCracker`, `BruteForceHashCracker`) : il manipule uniquement l'interface `HashCracker`, obtenue via la fabrique. Cela découple la logique métier de l'instanciation et facilite la maintenance.
