@@ -28,18 +28,25 @@ Le projet repose sur une interface commune `HashCracker`, implémentée par deux
 | `Main` | Point d'entrée : parsing des arguments et affichage des résultats |
 
 ## 4. Diagramme UML
-<<interface>>
-      HashCracker
-    +crack(hash:String):String
-          ▲
-    ┌─────┴─────┐
-    │           │
-HashCrackerFactory
 ## 5. Usage du patron Simple Factory
 
 La création des objets `HashCracker` est entièrement centralisée dans `HashCrackerFactory.create(method)`. Le programme principal ne connaît jamais les classes concrètes (`DictionaryHashCracker`, `BruteForceHashCracker`) : il manipule uniquement l'interface `HashCracker`, obtenue via la fabrique. Cela découple la logique métier de l'instanciation et facilite la maintenance.
 
 ## 6. Résultats obtenus
+
+| Méthode | Hash testé | Mot attendu | Résultat | Temps d'exécution |
+|---|---|---|---|---|
+| DICO | `098f6bcd4621d373cade4e832627b4f6` | test | Password found: test | 132 ms |
+| DICO | `21232f297a57a5a743894a0e4a801fc3` | admin | Password found: admin | 21 ms |
+| DICO | `ab4f63f9ac65152575886860dde480a1` | azerty | Password found: azerty | 22 ms |
+| BRUTE | `098f6bcd4621d373cade4e832627b4f6` | test | Password found: test | 857 ms |
+| BRUTE | `e2fc714c4727ee9395f324cd2e7f331f` | abcd | Password found: abcd | 158 ms |
+| BRUTE | `21232f297a57a5a743894a0e4a801fc3` | admin (5 lettres) | Password not found (attendu : hors limite de 4 caractères) | 952 ms |
+| DICO | `00000000000000000000000000000000` | (hash inexistant) | Password not found (attendu) | 21 ms |
+| BRUTE | `00000000000000000000000000000000` | (hash inexistant) | Password not found (attendu) | 1044 ms |
+
+Ces tests valident les deux stratégies sur des cas de succès (mots présents dans le dictionnaire, mots courts en brute force) et des cas d'échec attendus (mot trop long pour la limite de force brute, hash ne correspondant à rien).
+
 **Vidéo de démonstration :** [lien à insérer]
 
 ## 7. Difficultés rencontrées
