@@ -28,7 +28,7 @@ Le projet repose sur une interface commune `HashCracker`, implémentée par deux
 | `Main` | Point d'entrée : parsing des arguments et affichage des résultats |
 
 ## 4. Diagramme UML
-![Diagramme de classes](docs/diagramme-classes.png)
+<img width="441" height="684" alt="Diagramme Projet" src="https://github.com/user-attachments/assets/af1430e8-8527-48a4-af55-8d25b1405ee5" />
 
 ## 5. Usage du patron Simple Factory
 
