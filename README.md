@@ -81,3 +81,4 @@ javac -d target/classes src/main/java/com/passwordcracker/*.java
 java -cp target/classes com.passwordcracker.Main -m DICO -h <hashMD5>
 java -cp target/classes com.passwordcracker.Main -m BRUTE -h <hashMD5>
 ```
+**Vidéo de démonstration :** [Voir la vidéo de démonstration](https://youtu.be/LaVz1fPPl9c)
